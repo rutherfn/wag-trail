@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.room3)
     alias(libs.plugins.ktlint)
-    id("dev.zacsweers.metro") version "1.4.5"
+    alias(libs.plugins.metro)
 }
 
 room3 {
@@ -44,6 +44,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":base:resources"))
+    implementation(project(":feature:dogs-list"))
+
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
@@ -51,7 +54,9 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.room3.runtime)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="wag_window_background">#F3F0EA</color>
+    <color name="wag_green">#17382C</color>
+    <color name="wag_ink">#1A211D</color>
+</resources>

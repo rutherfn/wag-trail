@@ -1,11 +1,31 @@
 package com.nicholas.rutherford.wag.trail.ui.theme
 
-import androidx.compose.ui.graphics.Color
+import com.nicholas.rutherford.wag.trail.base.resources.Colors
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+val Paper = Colors.paper
+val Cream = Colors.cream
+val Ink = Colors.ink
+val Muted = Colors.muted
+val Green = Colors.green
+val GreenWash = Colors.greenWash
+val Stone = Colors.stone
+val StoneWash = Colors.stoneWash
+val Leaf = Colors.leaf
+val LeafWash = Colors.leafWash
+val PaperBright = Colors.paperBright
+val PaperDim = Colors.paperDim
+val PaperDeep = Colors.paperDeep
+val Line = Colors.line
+val LineSoft = Colors.lineSoft
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val Night = Colors.night
+val NightRaised = Colors.nightRaised
+val NightGreen = Colors.nightGreen
+val NightLow = Colors.nightLow
+val NightHigh = Colors.nightHigh
+val NightHighest = Colors.nightHighest
+val Sage = Colors.sage
+val Moss = Colors.moss
+val LeafLight = Colors.leafLight
+val LineNight = Colors.lineNight
+val LineNightSoft = Colors.lineNightSoft

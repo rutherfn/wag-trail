@@ -1,0 +1,7 @@
+<resources>
+    <string name="add_a_dog">Add a dog</string>
+    <string name="add_a_dog_description">Add a dog to start tracking walks.</string>
+    <string name="app_name">WagTrail</string>
+    <string name="dogs">Dogs</string>
+    <string name="no_dogs_yet">No dogs yet</string>
+</resources>

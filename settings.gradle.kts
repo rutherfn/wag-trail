@@ -24,4 +24,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "WagTrail"
 include(":app")
+include(":base:vm")
+include(":base:resources")
+include(":feature:dogs-list")
  

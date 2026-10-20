@@ -11,38 +11,95 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = Sage,
+    onPrimary = Ink,
+    primaryContainer = NightGreen,
+    onPrimaryContainer = Sage,
+    inversePrimary = Green,
+    secondary = Moss,
+    onSecondary = Night,
+    secondaryContainer = NightHigh,
+    onSecondaryContainer = Paper,
+    tertiary = LeafLight,
+    onTertiary = Night,
+    tertiaryContainer = NightGreen,
+    onTertiaryContainer = LeafLight,
+    background = Night,
+    onBackground = Paper,
+    surface = NightRaised,
+    onSurface = Paper,
+    surfaceVariant = NightHigh,
+    onSurfaceVariant = Moss,
+    surfaceTint = Night,
+    inverseSurface = Paper,
+    inverseOnSurface = Ink,
+    outline = LineNight,
+    outlineVariant = LineNightSoft,
+    surfaceBright = NightHighest,
+    surfaceDim = Night,
+    surfaceContainer = NightRaised,
+    surfaceContainerHigh = NightHigh,
+    surfaceContainerHighest = NightHighest,
+    surfaceContainerLow = NightLow,
+    surfaceContainerLowest = Night,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-     */
+    primary = Green,
+    onPrimary = Cream,
+    primaryContainer = GreenWash,
+    onPrimaryContainer = Green,
+    inversePrimary = Sage,
+    secondary = Stone,
+    onSecondary = Paper,
+    secondaryContainer = StoneWash,
+    onSecondaryContainer = Ink,
+    tertiary = Leaf,
+    onTertiary = Cream,
+    tertiaryContainer = LeafWash,
+    onTertiaryContainer = Green,
+    background = Paper,
+    onBackground = Ink,
+    surface = Paper,
+    onSurface = Ink,
+    surfaceVariant = PaperDim,
+    onSurfaceVariant = Muted,
+    surfaceTint = Paper,
+    inverseSurface = Night,
+    inverseOnSurface = Paper,
+    outline = Line,
+    outlineVariant = LineSoft,
+    surfaceBright = PaperBright,
+    surfaceDim = PaperDeep,
+    surfaceContainer = PaperDim,
+    surfaceContainerHigh = PaperDeep,
+    surfaceContainerHighest = LineSoft,
+    surfaceContainerLow = Paper,
+    surfaceContainerLowest = PaperBright,
 )
 
+/**
+ * Default Theme used to detect the color scheme style across the application
+ * based on factors such as dark theme, and dynamic color and supported version
+ *
+ * @param darkTheme Determines if darkTheme is enabled defaults to [isSystemInDarkTheme]
+ * @param dynamicColor Used to check if dynamic is enabled or not
+ * @param content [Composable] content thats passed into [MaterialTheme]
+ */
 @Composable
 fun WagTrailTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
-    content: @Composable () -> Unit
+    dynamicColor: Boolean = false,
+    content: @Composable () -> Unit,
 ) {
     val colorScheme = when {
         dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
             val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+            if (darkTheme) {
+                dynamicDarkColorScheme(context = context)
+            } else {
+                dynamicLightColorScheme(context = context)
+            }
         }
 
         darkTheme -> DarkColorScheme
@@ -52,6 +109,6 @@ fun WagTrailTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = content
+        content = content,
     )
 }
