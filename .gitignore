@@ -30,3 +30,10 @@ replay_pid*
 # Local Gradle cache and generated build output
 .gradle/
 build/
+
+app/build
+base/resources/build
+base/vm/build
+compose/theme/build
+di/build
+feature/dogs/build

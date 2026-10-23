@@ -2,10 +2,6 @@ package com.nicholas.rutherford.wag.trail.base.resources
 
 import androidx.compose.ui.graphics.Color
 
-/**
- * Shared WagTrail colors. Light values match the paper and forest screen.
- * Dark values keep that same green and cream palette on a night ground.
- */
 object Colors {
     val paper = Color(0xFFF3F0EA)
     val cream = Color(0xFFF4F0E8)

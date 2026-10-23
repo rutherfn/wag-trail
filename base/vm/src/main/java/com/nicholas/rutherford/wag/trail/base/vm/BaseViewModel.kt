@@ -31,10 +31,7 @@ abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
 
     protected open fun getFlowCollectionTrigger(): FlowCollectionTrigger = FlowCollectionTrigger.RESUME
 
-    protected fun <T> collectFlow(
-        flow: Flow<T>,
-        onCollect: suspend (T) -> Unit,
-    ) {
+    protected fun <T> collectFlow(flow: Flow<T>, onCollect: suspend (T) -> Unit) {
         getScope()?.let { scope ->
             val job = scope.launch {
                 flow.collectLatest { value ->
@@ -50,7 +47,7 @@ abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
     protected fun <T1, T2> collectFlows(
         flow1: Flow<T1>,
         flow2: Flow<T2>,
-        onCollect: suspend (T1, T2) -> Unit,
+        onCollect: suspend (T1, T2) -> Unit
     ) {
         getScope()?.let { scope ->
             val job = scope.launch {
@@ -69,7 +66,7 @@ abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
         flow2: Flow<T2>,
         flow3: Flow<T3>,
         flow4: Flow<T4>,
-        onCollect: suspend (T1, T2, T3, T4) -> Unit,
+        onCollect: suspend (T1, T2, T3, T4) -> Unit
     ) {
         getScope()?.let { scope ->
             val job = scope.launch {
@@ -83,12 +80,10 @@ abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
         }
     }
 
-    private fun shouldCollectFlow(): Boolean {
-        return when (getFlowCollectionTrigger()) {
-            FlowCollectionTrigger.INIT -> true
-            FlowCollectionTrigger.START -> isStart
-            FlowCollectionTrigger.RESUME -> isResumed
-        }
+    private fun shouldCollectFlow(): Boolean = when (getFlowCollectionTrigger()) {
+        FlowCollectionTrigger.INIT -> true
+        FlowCollectionTrigger.START -> isStart
+        FlowCollectionTrigger.RESUME -> isResumed
     }
 
     override fun onCreate(owner: LifecycleOwner) {

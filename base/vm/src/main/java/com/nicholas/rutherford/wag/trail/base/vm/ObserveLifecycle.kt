@@ -7,11 +7,14 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 
 /**
  * Attaches [viewModel] to [lifecycleOwner] for the composition, then removes it on dispose.
+ *
+ * @param viewModel Returns back the actual [BaseViewModel] that gets added to lifecycle observer
+ * @param lifecycleOwner Default [LifecycleOwner] that tales on a viewModel to manage
  */
 @Composable
 fun ObserveLifecycle(
     viewModel: BaseViewModel,
-    lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current,
+    lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current
 ) {
     DisposableEffect(key1 = lifecycleOwner) {
         lifecycleOwner.lifecycle.addObserver(viewModel)

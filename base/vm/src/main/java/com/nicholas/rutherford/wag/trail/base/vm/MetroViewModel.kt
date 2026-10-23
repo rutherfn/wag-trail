@@ -14,7 +14,7 @@ val LocalViewModelFactory = staticCompositionLocalOf<ViewModelProvider.Factory> 
 
 @Composable
 inline fun <reified VM : ViewModel> metroViewModel(
-    viewModelStoreOwner: ViewModelStoreOwner = checkNotNull(LocalViewModelStoreOwner.current) {
+    viewModelStoreOwner: ViewModelStoreOwner = checkNotNull(value = LocalViewModelStoreOwner.current) {
         "No ViewModelStoreOwner was provided via LocalViewModelStoreOwner"
-    },
+    }
 ): VM = viewModel(viewModelStoreOwner, factory = LocalViewModelFactory.current)

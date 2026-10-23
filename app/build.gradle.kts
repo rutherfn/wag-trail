@@ -45,7 +45,9 @@ android {
 
 dependencies {
     implementation(project(":base:resources"))
-    implementation(project(":feature:dogs-list"))
+    implementation(project(":compose:theme"))
+    implementation(project(":di"))
+    implementation(project(":feature:dogs"))
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
