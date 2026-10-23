@@ -14,7 +14,10 @@ import kotlinx.coroutines.flow.asStateFlow
 @Inject
 @ContributesIntoMap(
     scope = AppScope::class,
-    binding = binding<@ViewModelKey(value = AddEditDogViewModel::class) ViewModel>()
+    binding = binding<
+        @ViewModelKey(value = AddEditDogViewModel::class)
+        ViewModel
+        >()
 )
 class AddEditDogViewModel : BaseViewModel() {
 

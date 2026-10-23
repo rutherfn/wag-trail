@@ -17,7 +17,9 @@ import kotlinx.coroutines.launch
  * Subclasses can override [getScope] to enable [collectFlow]. Collection stays paused until the
  * trigger from [getFlowCollectionTrigger] is reached, and every job is canceled in [onCleared].
  */
-abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
+abstract class BaseViewModel :
+    ViewModel(),
+    DefaultLifecycleObserver {
 
     private val activeFlowCollections = mutableListOf<Job>()
     private var isResumed = false
@@ -29,7 +31,8 @@ abstract class BaseViewModel : ViewModel(), DefaultLifecycleObserver {
      */
     protected open fun getScope(): CoroutineScope? = null
 
-    protected open fun getFlowCollectionTrigger(): FlowCollectionTrigger = FlowCollectionTrigger.RESUME
+    protected open fun getFlowCollectionTrigger(): FlowCollectionTrigger =
+        FlowCollectionTrigger.RESUME
 
     protected fun <T> collectFlow(flow: Flow<T>, onCollect: suspend (T) -> Unit) {
         getScope()?.let { scope ->

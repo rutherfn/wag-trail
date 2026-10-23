@@ -11,9 +11,7 @@ import androidx.compose.ui.unit.dp
 
 // todo documentation
 @Composable
-fun AddEditDogScreen(
-    paddingValues: PaddingValues
-) {
+fun AddEditDogScreen(paddingValues: PaddingValues) {
     Column(
         modifier = Modifier
             .fillMaxSize()
